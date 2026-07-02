@@ -1,0 +1,38 @@
+# Build context is the project root — keep the image small and the build fast.
+# Only what the Dockerfile COPYs is needed; exclude everything heavy/irrelevant.
+
+# Virtualenvs
+**/.venv/
+**/venv/
+**/__pycache__/
+**/*.pyc
+
+# FULL checkpoints (2.9 GB) and logs — the image uses slim weights only.
+Segmentation/checkpoints/
+Segmentation/logs/
+
+# checkpoints_slim now holds ALL 99 models (~12 GB after `shrink --all`).
+# Ship only the 6 the API serves: ignore the folder, then re-include those 6.
+Segmentation/checkpoints_slim/*
+!Segmentation/checkpoints_slim/unetpp_se_resnext50_32x4d_aug
+!Segmentation/checkpoints_slim/linknet_se_resnext50_32x4d_aug
+!Segmentation/checkpoints_slim/manet_mit_b2_aug
+!Segmentation/checkpoints_slim/swinunet_swin_tiny_aug
+!Segmentation/checkpoints_slim/unetpp_resnet50_aug
+!Segmentation/checkpoints_slim/unetpp_se_resnext50_32x4d_aug_ftn
+
+# Dataset
+DATA_TODAY*/
+**/*.png
+**/*.jpg
+**/*.jpeg
+
+# Docs / notebooks / git
+**/*.md
+**/*.ipynb
+.git/
+.gitignore
+
+# Scratch
+**/inference_results/
+**/*.log

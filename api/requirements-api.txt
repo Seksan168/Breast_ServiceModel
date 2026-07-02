@@ -1,0 +1,5 @@
+# API layer — install on top of the training env (torch, segmentation_models_pytorch,
+# albumentations, pillow, numpy are already present in .venv).
+fastapi>=0.110
+uvicorn[standard]>=0.29
+python-multipart>=0.0.9

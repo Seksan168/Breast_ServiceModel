@@ -1,0 +1,37 @@
+# ── Python ───────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# ── Virtualenvs ──────────────────────────────────────────────────────────────
+.venv/
+venv/
+env/
+
+# ── Model weights (NOT in git — too large; provide locally, see api/API_README.md) ──
+Segmentation/checkpoints/
+Segmentation/checkpoints_slim/
+checkpoints/
+checkpoints_slim/
+*.pth
+*.pt
+*.onnx
+
+# ── Training artifacts / logs ────────────────────────────────────────────────
+Segmentation/logs/
+logs/
+inference_results/
+*.log
+
+# ── Dataset (patient data — never commit) ────────────────────────────────────
+DATA_TODAY*/
+*/images/
+*/masks/
+
+# ── OS / editor ──────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
